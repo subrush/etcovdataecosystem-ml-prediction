@@ -1,0 +1,39 @@
+<html>
+<head>  
+  <link href='https://fonts.googleapis.com/css family=Pacifico' rel= stylesheet type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{url_for('static', filename="css/style.css")}}>
+ </head> 
+ <body>
+ <div class="login">
+     <h1>Covid-19 severity prediction</h1>      
+     <form action="{{url_for('predict')}}"method="post">
+         <input type="text" name="Age" placeholder="Age" required="required"/><br>
+         <input type="text" name="Gender" placeholder="Gender [1-M 0-F]" required="required"/><br>
+         <input type="text" name="Comorbid" placeholder="Comorbid [1-Yes 0-No]" required="required"/><br>
+         <input type="text" name="CurrentSmoker" placeholder="Current Smoker [1-Yes 0-No]" required="required"/><br>
+         <input type="text" name="RespiratoryRateGreaterThan24" placeholder="Respiratory Rate > 24 [1-Yes 0-No]" required="required"/><br>
+         <input type="text" name="TemperatureGreaterThan37" placeholder="Temperature > 37 [1-Yes 0-No]" required="required"/><br>
+         <input type="text" name="GroundGlassOpacity" placeholder="Ground Glass Opacity [1-Yes 0-No]" required="required"/><br>
+         <input type="text" name="WBC" placeholder="WBC" required="required"/><br>
+         <input type="text" name="LymphocyteCount" placeholder="Lymphocyte Count" required="required"/><br>
+         <input type="text" name="Platelets" placeholder="Platelets" required="required"/><br>
+         <input type="text" name="Albumin" placeholder="Albumin" required="required"/><br>
+         <input type="text" name="LactateDehydrogenase" placeholder="Lactate Dehydrogenase" required="required"/><br>
+         <input type="text" name="TroponinI" placeholder="TroponinI" required="required"/><br>
+         <input type="text" name="Ddimer" placeholder="Ddimer" required="required"/><br>
+         <input type="text" name="Ferritin" placeholder="Ferritin" required="required"/><br>
+         <input type="text" name="Interleukin6" placeholder="Interleukin6" required="required"/><br>
+         <input type="text" name="Procalcitonin" placeholder="Procalcitonin" required="required"/>
+         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>           
+    </form>
+    ==========================================
+    <br>    
+    {{prediction_text}}
+    <br>
+    ==========================================       
+    </div>
+  </body>
+</html>
