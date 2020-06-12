@@ -8,7 +8,7 @@ model  = pickle.load(open('covid_sev_pre_model.pkl', 'rb'))
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('cov_sev_pre_frm.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -19,7 +19,12 @@ def predict():
     prediction = model.predict(final_features)
     
     output = prediction 
-    return render_template('index.html', prediction_text='Covid-19 severity prediction [1-recovered 0-deceased]: {}'. format(output))
+    if prediction == 1:
+        output = 'Recovered'
+    elif prediction == 0:
+        output = 'Deceased'
+        
+    return render_template('cov_sev_pre_frm.html', prediction_text='The result will be {}'.format(output))
 
 @app.route('/predict_api',  methods=['POST'])
 def predict_api():
